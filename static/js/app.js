@@ -17,17 +17,13 @@ function init() {
         console.log("data_metadata: ", data_metadata)
         console.log("data_samples : ", data_samples)
 
-        let dropdownMenu = d3.select("#selDataset");
 
         // dropdown data
         for (let name of data_names) {
             console.log("name: ", name);
-            dropdownMenu.append('option').text(name).property('value',name);
+
         }
 
-        // demographics using first name
-        let initial_test_subject_id = data_names[0];
-        demographics (initial_test_subject_id);
 
 
     });
