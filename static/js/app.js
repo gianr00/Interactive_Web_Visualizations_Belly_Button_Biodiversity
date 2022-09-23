@@ -8,21 +8,21 @@ function init() {
     d3.json(url_samples_data).then(function(data) {
         console.log(data);
     
-        let data_names    = Object.values(data.names)
-        let data_metadata = Object.values(data.metadata)
-        let data_samples  = Object.values(data.samples)
+        let data_names    = Object.values(data.names);
+        let data_metadata = Object.values(data.metadata);
+        let data_samples  = Object.values(data.samples);
     
         //log the names,  metadata and samples from data object
-        console.log("data_names   : ", data_names)
-        console.log("data_metadata: ", data_metadata)
-        console.log("data_samples : ", data_samples)
+        console.log("data_names   : ", data_names);
+        console.log("data_metadata: ", data_metadata);
+        console.log("data_samples : ", data_samples);
 
 
         // dropdown data
         for (let name of data_names) {
             console.log("name: ", name);
 
-        }
+        };
 
 
 
