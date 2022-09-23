@@ -24,7 +24,28 @@ function init() {
 
         };
 
+        // demo data
+        let data_metadata = Object.values(data.metadata);
+    
+        
+        //metadata data object
+        console.log("demographic : ", demographic);
 
+        let demographic_data = demographic[0];
+        console.log("demographic_data          : ", demographic_data );
+        console.log("demographic_data.id       : ", demographic_data.id );
+        console.log("demographic_data.ethnicity: ", demographic_data.ethnicity );
+        console.log("demographic_data.gender   : ", demographic_data.gender );
+        console.log("demographic_data.age      : ", demographic_data.age );
+        console.log("demographic_data.location : ", demographic_data.location );
+        console.log("demographic_data.bbtype   : ", demographic_data.bbtype );
+        console.log("demographic_data.bbtype   : ", demographic_data.wfreq );
+        // demographic data from metadata
+        let data_metadata = Object.values(data.metadata);
+        
+        // samples
+        let data_samples = Object.values(data.samples);
+        console.log ( data_samples );
 
     });
 };
