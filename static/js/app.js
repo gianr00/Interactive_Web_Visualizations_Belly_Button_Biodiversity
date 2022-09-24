@@ -20,9 +20,6 @@ function demographicsInfo (subject_id) {
         
         // select the demographic Info area
         let demographicData = d3.select("#sample-metadata");
-        // initialize the demographic Info area
-        demographicData.html(" ");
-
     
        Object.entries(data_demographic).forEach(([key, value]) => {
             // console.log("key  : ", key  );
