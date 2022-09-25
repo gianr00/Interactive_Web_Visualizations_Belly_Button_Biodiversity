@@ -19,3 +19,13 @@ Instructions:
 -    Use `sample_values` for the marker size.
 -    Use `otu_ids` for the marker colors.
 -    Use `otu_labels` for the text values.
+4. Display the sample metadata, i.e., an individual's demographic information.
+
+5. Display each key-value pair from the metadata JSON object somewhere on the page.
+
+6. Update all the plots when a new sample is selected. 
+
+Bonus: Advanced Challenge Assignment (Optional):
+-    Adapt the Gauge Chart from <https://plot.ly/javascript/gauge-charts/> to plot the weekly washing frequency of the individual.
+-    You will need to modify the example gauge code to account for values ranging from 0 through 9.
+-    Update the chart whenever a new sample is selected.
