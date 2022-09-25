@@ -1,2 +1,7 @@
-# Interactive_Web_Visualizations_Belly_Button_Biodiversity
-Interactive dashboard to explore the Belly Button Biodiversity data
+Module 14 Challenge: Interactive Web Visualizations – Belly Button Biodiversity
+
+Objective:
+This challenge utilizes the skills learned in Module 14 – JavaScript with D3.js, Plotly and Event handling with D3. This project builds an interactive dashboard to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/), which catalogs the microbes that colonize human navels. 
+
+The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
+
