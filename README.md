@@ -21,4 +21,4 @@ The dashboard allows the user to select a subject ID to be analyzed. The dashboa
 
 Image of the sample dashboard showing charts for a selected subject ID:
 
-![Dashboard Image](Images/App - dashboard image.png)
+![image](https://user-images.githubusercontent.com/105129254/192623701-4397913c-004d-4b71-af70-d3f889d0c352.png)
