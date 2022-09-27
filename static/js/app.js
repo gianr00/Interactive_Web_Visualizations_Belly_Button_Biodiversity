@@ -13,12 +13,12 @@ function demographicsInfo (subject_id) {
             (subject_element) => subject_element.id == subject_id
         );
 
-        //metadata data object
+       
         console.log("data_demographic_by_id : ", data_demographic_by_id);
         let data_demographic = data_demographic_by_id [0];
         console.log("data_demographic          : ", data_demographic );
         
-        // select the demographic Info area
+        
         let demographicData = d3.select("#sample-metadata");
     
        Object.entries(data_demographic).forEach(([key, value]) => {
