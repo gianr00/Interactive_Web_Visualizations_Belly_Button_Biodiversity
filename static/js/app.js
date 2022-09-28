@@ -160,6 +160,7 @@ function init() {
         console.log("data_samples : ", data_samples);
         for (let name of data_names) {
             console.log("name: ", name);
+            dropdownMenu.append('option').text(name).property('value', name);
 
         };
 
@@ -168,8 +169,8 @@ function init() {
         console.log("initial_subject_id: ", initial_subject_id)
 
         demographicsInfo (initial_subject_id);
-        chartBar (subject_id);
-        chartBubble(subject_id);
+        chartBar (initial_subject_id);
+        chartBubble(initial_subject_id);
         
 
     });
