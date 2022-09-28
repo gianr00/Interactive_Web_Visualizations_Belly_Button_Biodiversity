@@ -169,7 +169,7 @@ function optionChanged(subject_id) {
         //------------------------------------------------------------------------------------------------
         // Plot the gauge chart for the weekly Washing Frequency the selected subject_id
         //------------------------------------------------------------------------------------------------
-        chartGauge(subject_id);
+       
 };
 function init() {
 
@@ -223,7 +223,7 @@ function init() {
         //------------------------------------------------------------------------------------------------
         // Plot the gauge chart for the weekly Washing Frequency the initial subject_id
         //------------------------------------------------------------------------------------------------
-        chartGauge(initial_subject_id);
+       
     });
 };
 
