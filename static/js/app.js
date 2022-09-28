@@ -13,13 +13,16 @@ function demographicsInfo (subject_id) {
             (subject_element) => subject_element.id == subject_id
         );
 
-       
+        //metadata data object
         console.log("data_demographic_by_id : ", data_demographic_by_id);
         let data_demographic = data_demographic_by_id [0];
         console.log("data_demographic          : ", data_demographic );
         
-        
+        // select the demographic Info area
         let demographicData = d3.select("#sample-metadata");
+        // initialize the demographic Info area
+        demographicData.html(" ");
+
     
        Object.entries(data_demographic).forEach(([key, value]) => {
             // console.log("key  : ", key  );
@@ -33,14 +36,16 @@ function demographicsInfo (subject_id) {
     });
 };
 
-function chartBarBubble (subject_id) {
-    console.log("ChartBarBubble subject_id:" , subject_id);
-    d3.json(url_samples_data).then(function(data) {
+
+function chartBar(subject_id) {
+    console.log("ChartBarBubble subject_id:", subject_id);
+    // Fetch the JSON data from samples.json file and save in an object name data
+    d3.json(url_samples_data).then(function (data) {
         console.log(data);
-    
+
         let data_samples = Object.values(data.samples);
 
-        let data_samples_by_id = data_samples.filter (
+        let data_samples_by_id = data_samples.filter(
             (subject_element) => subject_element.id == subject_id
         );
 
@@ -62,60 +67,82 @@ function chartBarBubble (subject_id) {
         console.log("top10_otu_labels      : ", top10_otu_labels);
 
         let trace1 = {
-            x: top10_sample_values ,
+            x: top10_sample_values,
             y: top10_otu_ids,
-           
+
             text: top10_otu_labels,
             type: "bar",
             orientation: "h"
-          };
-          
+        };
+
         var data = [trace1];
-        
+
         let layout = {
             title: "Top 10 OTUs found in an individual",
             barmode: "group",
             // Include margins in the layout so the x-tick labels display correctly
             margin: {
-              l: 100,
-              r: 100,
-              b: 30,
-              t: 50
+                l: 100,
+                r: 100,
+                b: 30,
+                t: 50
             }
-          };
-          Plotly.newPlot("bar", data, layout );
-         
-          // ==== bubble chart
-          let trace2 = {
+        };
+        Plotly.newPlot("bar", data, layout);
+
+    });
+};
+
+function chartBubble(subject_id) {
+    console.log("ChartBubble subject_id:", subject_id);
+    // Fetch the JSON data from samples.json file and save in an object name data
+    d3.json(url_samples_data).then(function (data) {
+        console.log(data);
+
+        let data_samples = Object.values(data.samples);
+
+        let data_samples_by_id = data_samples.filter(
+            (subject_element) => subject_element.id == subject_id
+        );
+
+        //sample_values data object
+        console.log("data_samples_by_id : ", data_samples_by_id);
+        let data_chart = data_samples_by_id[0];
+        console.log("data_chart     : ", data_chart);
+
+        //ext: top10_otu_ids,
+        // ==== bubble chart
+        let trace2 = {
             x: data_chart.otu_ids,
             y: data_chart.sample_values,
             mode: "markers",
             marker: {
                 size: data_chart.sample_values,
                 color: data_chart.otu_ids
-                
+
             },
             text: data_chart.otu_labels
-          };
-          
+        };
+
         var data2 = [trace2];
-        
+
         let layout2 = {
-            xaxis: {title: "OTU ID"},
+            xaxis: { title: "OTU ID" },
             height: 550,
             width: 1000
-          };
-          Plotly.newPlot("bubble", data2, layout2 );
+        };
+        Plotly.newPlot("bubble", data2, layout2);
 
 
- 
+
     });
 };
 function optionChanged (subject_id) {
 
     console.log("optionChanged  subject_id:" , subject_id);
     demographicsInfo (subject_id);
-    chartBarBubble (subject_id);
+    chartBar (subject_id);
+    chartBubble(subject_id);
 
 function init() {
     
@@ -141,7 +168,8 @@ function init() {
         console.log("initial_subject_id: ", initial_subject_id)
 
         demographicsInfo (initial_subject_id);
-        chartBarBubble (subject_id);
+        chartBar (subject_id);
+        chartBubble(subject_id);
         
 
     });
