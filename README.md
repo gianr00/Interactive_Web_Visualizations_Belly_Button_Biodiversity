@@ -2,7 +2,6 @@ Interactive Web Visualizations – Belly Button Biodiversity
 
 Author: Rosie Gianan, gianr00@gmail.com
 
-Gitbub Pages: https://gianr00.github.io/Interactive_Web_Visualizations_Belly_Button_Biodiversity/
 
 Build With:
 
