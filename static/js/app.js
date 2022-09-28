@@ -1,41 +1,48 @@
-
+//====================================================================================================
+// Collect and Plot the Belly Button Biodiversity data
+// by Rosie Gianan
+//====================================================================================================
+// Save the url for samples.json file
 const url_samples_data = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json";
 
-function demographicsInfo (subject_id) {
-    console.log("demographicsInfo subject_id:" , subject_id);
-    
-    d3.json(url_samples_data).then(function(data) {
+
+
+
+function demographicsInfo(subject_id) {
+    console.log("demographicsInfo subject_id:", subject_id);
+
+    // Fetch the JSON data from samples.json file and save in an object name data
+    d3.json(url_samples_data).then(function (data) {
         console.log(data);
-    
+
         let data_metadata = Object.values(data.metadata);
 
-        let data_demographic_by_id = data_metadata.filter (
+        let data_demographic_by_id = data_metadata.filter(
             (subject_element) => subject_element.id == subject_id
         );
 
         //metadata data object
         console.log("data_demographic_by_id : ", data_demographic_by_id);
-        let data_demographic = data_demographic_by_id [0];
-        console.log("data_demographic          : ", data_demographic );
-        
+        let data_demographic = data_demographic_by_id[0];
+        console.log("data_demographic          : ", data_demographic);
+
         // select the demographic Info area
         let demographicData = d3.select("#sample-metadata");
         // initialize the demographic Info area
         demographicData.html(" ");
 
-    
-       Object.entries(data_demographic).forEach(([key, value]) => {
+
+        Object.entries(data_demographic).forEach(([key, value]) => {
             // console.log("key  : ", key  );
             // console.log("value: ", value );
-            console.log(key, " : ", value  )
+            console.log(key, " : ", value)
             // add demographicData in html
             demographicData.append("h6").text(key + ": " + value)
-            
-       });
- 
+
+        });
+
     });
 };
-
 
 function chartBar(subject_id) {
     console.log("ChartBarBubble subject_id:", subject_id);
@@ -137,48 +144,88 @@ function chartBubble(subject_id) {
 
     });
 };
-function optionChanged (subject_id) {
 
-    console.log("optionChanged  subject_id:" , subject_id);
-    demographicsInfo (subject_id);
-    chartBar (subject_id);
-    chartBubble(subject_id);
+//----------------------------------------------------------------------------------------------------
+// Event listener - new subject_id was selected from the dropdown list
+//----------------------------------------------------------------------------------------------------
+function optionChanged(subject_id) {
+    console.log("optionChanged  subject_id:", subject_id);
 
+        //------------------------------------------------------------------------------------------------
+        // Plot the demographics Info data for the selected subject_id
+        //------------------------------------------------------------------------------------------------
+        demographicsInfo(subject_id);
+
+        //------------------------------------------------------------------------------------------------
+        // Plot the bar chart for the Top 10 samples for the selected subject_id
+        //------------------------------------------------------------------------------------------------
+        chartBar(subject_id);
+
+        //------------------------------------------------------------------------------------------------
+        // Plot the Bubble chart for each samples for the selected subject_id
+        //------------------------------------------------------------------------------------------------
+        chartBubble(subject_id);
+
+
+};
 function init() {
-    
 
-    d3.json(url_samples_data).then(function(data) {
+    // Fetch the JSON data from samples.json file and save in an object name data
+    d3.json(url_samples_data).then(function (data) {
         console.log(data);
-    
-        let data_names    = Object.values(data.names);
-        let data_metadata = Object.values(data.metadata);
-        let data_samples  = Object.values(data.samples);
-    
+
+        let data_names = Object.values(data.names)
+        let data_metadata = Object.values(data.metadata)
+        let data_samples = Object.values(data.samples)
+
         //log the names,  metadata and samples from data object
-        console.log("data_names   : ", data_names);
-        console.log("data_metadata: ", data_metadata);
-        console.log("data_samples : ", data_samples);
+        console.log("data_names   : ", data_names)
+        console.log("data_metadata: ", data_metadata)
+        console.log("data_samples : ", data_samples)
+
+        //------------------------------------------------------------------------------------------------
+        // Populate the dropdownMenu with list of subject id's
+        //------------------------------------------------------------------------------------------------
+
+        // select the dropdown menu
+        let dropdownMenu = d3.select("#selDataset");
+
+        // populate the dropdownMenu with data.names value
         for (let name of data_names) {
-            console.log("name: ", name);
+            //console.log("name: ", name);
             dropdownMenu.append('option').text(name).property('value', name);
+        }
 
-        };
-
-
+        //------------------------------------------------------------------------------------------------
+        // Save the first data.names as the initial subject_id
+        //------------------------------------------------------------------------------------------------
         let initial_subject_id = data_names[0];
         console.log("initial_subject_id: ", initial_subject_id)
 
-        demographicsInfo (initial_subject_id);
-        chartBar (initial_subject_id);
-        chartBubble(initial_subject_id);
-        
+        //------------------------------------------------------------------------------------------------
+        // Plot the demographics Info data for the initial subject_id
+        //------------------------------------------------------------------------------------------------
+        demographicsInfo(initial_subject_id);
 
-    });
+        //------------------------------------------------------------------------------------------------
+        // Plot the bar chart for the Top 10 samples for the initial subject_id
+        //------------------------------------------------------------------------------------------------
+        chartBar(initial_subject_id);
+
+        //------------------------------------------------------------------------------------------------
+        // Plot the Bubble chart for each samples for the initial subject_id
+        //------------------------------------------------------------------------------------------------
+        chartBubble(initial_subject_id);
+
+
 };
 
+//----------------------------------------------------------------------------------------------------
 init();
+//----------------------------------------------------------------------------------------------------
 
-    
+// end of code =======================================================================================
+
 
 
 
