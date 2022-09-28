@@ -115,17 +115,6 @@ function chartGauge2 (subject_id) {
 };
 
 
-//{ range: [0, 1], color: "rgb(248, 243, 236)" },
-//{ range: [1, 2], color: "rgb(239, 234, 220)" },
-//{ range: [2, 3], color: "rgb(230, 225, 205)" },
-//{ range: [3, 4], color: "rgb(218, 217, 190)" },
-//{ range: [4, 5], color: "rgb(204, 209, 176)" },
-//{ range: [5, 6], color: "rgb(189, 202, 164)" },
-//{ range: [6, 7], color: "rgb(172, 195, 153)" },
-//{ range: [7, 8], color: "rgb(153, 188, 144)" },
-//{ range: [8, 9], color: "rgb(132, 181, 137)" },
-//
-
 
 
 
