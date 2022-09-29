@@ -206,8 +206,6 @@ function init() {
 
         // populate the dropdownMenu with data.names value
         for (let name of data_names) {
-            //console.log("name: ", name);
-            // dropdownMenu.append('option').text(name).property('value', name);
             dropdownMenu.append('option').text(name);
         };
 
