@@ -2,10 +2,9 @@ Interactive Web Visualizations – Belly Button Biodiversity
 
 Author: Rosie Gianan, gianr00@gmail.com
 
+Website URL: https://gianr00.github.io/Interactive_Web_Visualizations_Belly_Button_Biodiversity/
 
-Build With:
-
-JavaScript with D3.js, Plotly and Event handling with D3.
+Build With: JavaScript with D3.js, Plotly and Event handling with D3.
 
 Goals:
 
@@ -24,7 +23,6 @@ The dashboard allows the user to select a subject ID to be analyzed. The dashboa
 3.    A gauge chart to plot the weekly washing frequency of the individual.
 4.    Displays individual's demographic information.
 
-Image of the sample dashboard showing charts for a selected subject ID:
+Image of the dashboard showing charts for a selected subject ID:
+
 ![Image](Images/Dashboard_image.png)
-
-
