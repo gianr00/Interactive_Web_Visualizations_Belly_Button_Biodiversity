@@ -16,7 +16,7 @@ Visualize and display the person’s OTUs through plots using samples.json file 
 
 ## Solutions:
 
-1.    1.    Create a dashboard that allows the user to select a subject ID of an individual. 
+1.    Create a dashboard that allows the user to select a subject ID of an individual. 
 2.    Analyze and visualize the data for the selected subject id and display the results using the following charts:
 -    A Horizontal bar chart that displays the top 10 OTUs found in an individual.
 -    A bubble chart that displays each sample of  person’s OTUs.
